@@ -14,12 +14,13 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     async function getData() {
       try {
-        const res = await fetch("http://localhost:5174/src/CA.json");
+        const res = await fetch("https://gist.githubusercontent.com/trdxlucifer/0ef53c85397a74e85c9cec930093bf98/raw/9c7d860c1f7ed647290b16cb3ada4c4146165adb/CAdata.json");
         if (!res.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await res.json();
         setUserData(data);
+        console.log(data)
         setIsLoading(false); // Set isLoading to false when data is loaded
       } catch (error) {
         console.error("Error fetching data:", error);
